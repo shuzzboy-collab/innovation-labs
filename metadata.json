@@ -1,0 +1,6 @@
+{
+  "name": "InnovationLab – AI Agency | Agents & Bots",
+  "description": "Premier AI agency delivering intelligent agents, AI chatbots, and business automation solutions to turn challenges into measurable business growth.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

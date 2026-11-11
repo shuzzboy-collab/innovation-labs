@@ -1,0 +1,233 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Custom scrollbar for clean dashboard and code views */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Subtle circuit and geometric backdrop textures matching brand identity */
+.bg-circuit-dots {
+  background-image: radial-gradient(rgba(234, 88, 12, 0.12) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+.bg-subtle-grid {
+  background-size: 48px 48px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+}
+
+.bg-soft-peach-gradient {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FFF8F4 50%, #FFFFFF 100%);
+}
+
+.bg-glow-radial {
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(249, 115, 22, 0.12), transparent 70%);
+}
+
+/* Ambient glow orbs */
+.ambient-orb {
+  filter: blur(80px);
+  pointer-events: none;
+  border-radius: 9999px;
+  opacity: 0.55;
+  transition: opacity 0.5s ease;
+}
+
+/* Logo & Banner Natural Blend: eliminates screenshot bounding box and blends seamlessly with UI */
+.logo-blend-natural {
+  mix-blend-mode: multiply;
+  filter: contrast(1.15) brightness(1.08);
+}
+
+.banner-blend-natural {
+  mix-blend-mode: multiply;
+  filter: contrast(1.12) brightness(1.07);
+}
+
+/* Premium micro-interactions & hover utilities */
+.card-hover-elevate {
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.28s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.28s ease;
+}
+
+.card-hover-elevate:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px -12px rgba(234, 88, 12, 0.14), 0 8px 20px -4px rgba(15, 23, 42, 0.04);
+  border-color: rgba(249, 115, 22, 0.5);
+}
+
+/* 3D Banner Stage & Perspective */
+.banner-3d-stage {
+  perspective: 1200px;
+}
+
+.banner-3d-card {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Glass Sheen sweeping reflection across banner */
+.glass-sheen {
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    105deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.05) 35%,
+    rgba(255, 255, 255, 0.45) 50%,
+    rgba(255, 255, 255, 0.05) 65%,
+    transparent 80%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  transition: left 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .glass-sheen {
+  left: 150%;
+}
+
+/* Hotspot Radar Pulse */
+@keyframes radar-ping {
+  0% {
+    transform: scale(0.9);
+    opacity: 0.9;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+.animate-radar {
+  animation: radar-ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.btn-hover-lift {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.15s ease;
+}
+
+.btn-hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -4px rgba(234, 88, 12, 0.45);
+  filter: brightness(1.04);
+}
+
+.btn-hover-lift:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+/* Light button shimmer reflection on hover */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(60deg, transparent 20%, rgba(255, 255, 255, 0.3) 50%, transparent 80%);
+  transform: rotate(30deg) translateX(-100%);
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.btn-shimmer:hover::after {
+  transform: rotate(30deg) translateX(100%);
+}
+
+/* Gradient border micro-glow */
+.glow-border-hover {
+  position: relative;
+}
+
+.glow-border-hover::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.4), rgba(251, 146, 60, 0.1), rgba(249, 115, 22, 0.4));
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.glow-border-hover:hover::before {
+  opacity: 1;
+}
+
+/* Subtle corner tick mark for technical / circuit motifs */
+.corner-ticks {
+  position: relative;
+}
+
+.corner-ticks::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #ea580c;
+  border-left: 2px solid #ea580c;
+  border-top-left-radius: 4px;
+}
+
+.corner-ticks::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  right: -1px;
+  width: 8px;
+  height: 8px;
+  border-bottom: 2px solid #ea580c;
+  border-right: 2px solid #ea580c;
+  border-bottom-right-radius: 4px;
+}
